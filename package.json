@@ -1,0 +1,23 @@
+{
+  "name": "weui-for-vue",
+  "version": "1.0.1",
+  "description": "weui for vue",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lmw6412036/weui-for-vue.git"
+  },
+  "keywords": [
+    "weui",
+    "vue"
+  ],
+  "author": "lmw6412036",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lmw6412036/weui-for-vue/issues"
+  },
+  "homepage": "https://github.com/lmw6412036/weui-for-vue#readme"
+}
