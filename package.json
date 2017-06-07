@@ -56,10 +56,6 @@
     "last 2 versions",
     "not ie <= 8"
   ],
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lmw6412036/weui-for-vue.git"
