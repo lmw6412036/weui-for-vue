@@ -5,7 +5,6 @@
 </template>
 
 <script>
-    import Dom from  "../../lib/dom"
     export default {
         props: {
             text: String,
