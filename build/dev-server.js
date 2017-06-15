@@ -12,6 +12,11 @@ var webpack = require('webpack')
 var proxyMiddleware = require('http-proxy-middleware')
 var webpackConfig = require('./webpack.dev.conf')
 
+var co=require("hprose").co;
+var antoVersion=require("auto-version");
+co(antoVersion(path.join(__dirname,"../package.json")));
+
+
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
 // automatically open browser, if not set will be false

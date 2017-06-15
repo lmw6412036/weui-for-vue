@@ -1,6 +1,6 @@
 # weui-for-vue
 
-> weui for vue
+> weui for vue(开发中...)
 
 ## Build Setup
 
