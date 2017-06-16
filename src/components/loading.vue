@@ -7,15 +7,22 @@
     </div>
   </div>
 </template>
-
 <script>
   export default {
     props: {
-      text:String,
-      show:Boolean
+      text: {
+        type: String,
+        default: "加载中..."
+      },
+      show: {
+        type: Boolean,
+        default: false
+      }
     },
     data() {
-      return {};
+      return {
+        doshow: false
+      };
     },
     mounted() {
 
@@ -23,7 +30,8 @@
     beforeDestroy() {
 
     },
-    methods: {}
+    methods: {},
+    watch: {}
   };
 </script>
 

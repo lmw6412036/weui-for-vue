@@ -25,25 +25,31 @@
     computed: {},
     components: {},
     mounted() {
+      this._show(this.show);
     },
     beforeDestroy() {
     },
     methods: {
-      _hide(){
-        setTimeout((res) => {
-          this.goup = false;
-          this.$emit("msg:hide","hide");
-        }, this.time)
-      }
-    },
-    watch: {
-      show(value){
+      _show(value){
         if (value) {
           setTimeout(() => {
             this.goup = true;
             this._hide();
           }, 20)
         }
+      },
+      _hide(){
+        setTimeout((res) => {
+          this.goup = false;
+          setTimeout((res) => {
+              this.$emit("msg:hide",'hide')
+          }, 200)
+        }, this.time)
+      }
+    },
+    watch: {
+      show(value){
+        this._show(value);
       }
     }
   };

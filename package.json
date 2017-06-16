@@ -1,6 +1,6 @@
 {
     "name": "weui-for-vue",
-    "version": "1.0.11",
+    "version": "1.0.18",
     "description": "weui for vue",
     "main": "index.js",
     "scripts": {
@@ -49,7 +49,8 @@
         "webpack-bundle-analyzer": "^2.2.1",
         "webpack-dev-middleware": "^1.10.0",
         "webpack-hot-middleware": "^2.18.0",
-        "webpack-merge": "^4.1.0"
+        "webpack-merge": "^4.1.0",
+        "weui": "^1.1.2"
     },
     "engines": {
         "node": ">= 4.0.0",

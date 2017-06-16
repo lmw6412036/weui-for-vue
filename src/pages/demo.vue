@@ -1,32 +1,28 @@
 <template>
   <div class="">
-    <msg @msg:hide="show=false" text="消息提示" :show="show"></msg>
+    <toast @toast:hide="show=false" :show="show" text="成功"></toast>
   </div>
 </template>
 
 <script>
+  import Toast from "../components/toast.vue"
+  import Loading from "../components/loading.vue"
   import Msg from "../components/msg.vue"
+
   export default {
     data() {
       return {
-        show: false
+        show: true
       };
     },
     computed: {},
-    components: {Msg},
+    components: {Msg, Loading, Toast},
     mounted() {
       setTimeout((res) => {
         this.show = true;
-        console.log("定时--",this.show);
-      }, 5000)
-
-      setTimeout((res) => {
-        this.show = true;
-        console.log("定时--",this.show);
       }, 10000)
     },
     beforeDestroy() {
-
     },
     methods: {}
   };
