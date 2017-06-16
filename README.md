@@ -10,7 +10,10 @@ npm i -D weui-for-vue
 
 ## 使用方式
 ``` bash
+
+引入css
 import "weui"
+
 ###完全加载
 import WeuiForVue from "weui-for-vue"
 components:{...WeuiForVue}
@@ -20,6 +23,8 @@ import {Msg} from "weui-for-vue"
 components:{Msg}
 
 ###单独引入，减少包的大小
+import Msg from 'weui-for-vue/src/components/msg.vue'
+components:{Msg}
 
 ```
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+[文档]() 
