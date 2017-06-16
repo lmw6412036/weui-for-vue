@@ -1,21 +1,25 @@
 # weui-for-vue
 
-> weui for vue(开发中...)
+> css依赖weui(1.0+)
+> 继续开发中...
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+##安装
+```bash
+npm i -D weui-for-vue
 ```
 
+## 使用方式
+``` bash
+import "weui"
+###完全加载
+import WeuiForVue from "weui-for-vue"
+components:{...WeuiForVue}
+
+###部分引入
+import {Msg} from "weui-for-vue"
+components:{Msg}
+
+###单独引入，减少包的大小
+
+```
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
