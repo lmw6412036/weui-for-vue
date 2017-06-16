@@ -1,6 +1,7 @@
 # weui-for-vue
 
 > css依赖weui(1.0+)
+
 > 继续开发中...
 
 ##安装
@@ -27,4 +28,4 @@ import Msg from 'weui-for-vue/src/components/msg.vue'
 components:{Msg}
 
 ```
-[文档]() 
+[文档](https://github.com/lmw6412036/weui-for-vue/wiki) 
