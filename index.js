@@ -3,6 +3,9 @@
  */
 import Msg from "./src/components/msg.vue";
 
-export default {
+const WeuiForVue = {
   Msg
-}
+};
+
+module.exports=WeuiForVue;
+
