@@ -4,7 +4,7 @@
 
 > 继续开发中...
 
-##安装
+## 安装
 ```bash
 npm i -D weui-for-vue
 ```
