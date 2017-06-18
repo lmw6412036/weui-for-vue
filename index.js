@@ -4,12 +4,15 @@
 import Msg from "./src/components/msg.vue"
 import Loading from "./src/components/loading.vue"
 import Toast from "./src/components/toast.vue"
+import FormInput from "./src/components/form/input.vue"
+import Alert from "./src/components/dialog/alert.vue"
+import Confirm from "./src/components/dialog/confirm.vue"
 
 export default {
-  Msg,Loading,Toast
+  Msg,Loading,Toast,FormInput,Alert,Confirm
 }
 
-export {Msg,Loading,Toast}
+export {Msg,Loading,Toast,FormInput,Alert,Confirm}
 
 
 
