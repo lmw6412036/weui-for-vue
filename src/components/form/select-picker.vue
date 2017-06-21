@@ -1,8 +1,8 @@
 <template>
   <div class="weui-cell weui-cell_select">
-    <div class="weui-cell__hd"><label :for="id" class="weui-label">选择</label></div>
+    <div class="weui-cell__hd"><label :for="id" class="weui-label">{{label}}</label></div>
     <div class="weui-cell__bd">
-      <input :value="label" readonly class="weui-input" type="text" :id="id" @click="click()">
+      <input :value="showvalue" readonly class="weui-input" type="text" :id="id" @click="click()">
     </div>
   </div>
 </template>
@@ -11,6 +11,7 @@
   import weui from "weui.js";
   export default {
     props: {
+      label: String,
       value: {
         type: [String, Number, Array]
       },
@@ -20,7 +21,7 @@
     },
     data() {
       return {
-        label: ""
+        showvalue: ""
       };
     },
     computed: {
@@ -49,16 +50,16 @@
         return val;
       },
       _setLabel(value){
-        this.label = "";
-        console.log('value',value);
+        this.showvalue = "";
+        console.log('value', value);
         value.forEach((item, index) => {
           this.data[index].forEach((o, i) => {
-            if (o.value == item||o.value == item.value) {
-              this.label += `-${o.label}`;
+            if (o.value == item || o.value == item.value) {
+              this.showvalue += `-${o.label}`;
             }
           })
         });
-        this.label = this.label.substr(1);
+        this.showvalue = this.showvalue.substr(1);
       },
       _change(res){
         console.log("change", res);

@@ -1,6 +1,6 @@
 <template>
   <div class="weui-cells weui-cells_form">
-    <select-picker :data="data" :value="form.value"></select-picker>
+    <date-picker label="出生日期"></date-picker>
   </div>
 </template>
 <script>
@@ -12,43 +12,21 @@
   import Msg from "../components/msg.vue"
   import FormInput from "../components/form/input.vue"
   import SelectPicker from "../components/form/select-picker.vue"
-
+  import DatePicker from "../components/form/date-picker.vue"
 
   export default {
     data() {
       return {
-        data: [[
-          {
-            label: '1',
-            value: '1'
-          }, {
-            label: '2',
-            value: '2'
-          }, {
-            label: '3',
-            value: '3'
-          }
-        ], [
-          {
-            label: 'A',
-            value: 'A'
-          }, {
-            label: 'B',
-            value: 'B'
-          }, {
-            label: 'C',
-            value: 'C'
-          }
-        ]],
+        data: [],
         form: {
-          value: ["1","C"]
+          value: ""
         },
         disabled: true,
         show: false
       };
     },
     computed: {},
-    components: {FormButton, Msg, Loading, Toast, FormInput, Alert, Confirm, SelectPicker},
+    components: {FormButton, Msg, Loading, Toast, FormInput, Alert, Confirm, SelectPicker,DatePicker},
     mounted() {
       setTimeout((res) => {
         this.show = true;
