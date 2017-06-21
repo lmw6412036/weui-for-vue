@@ -19,7 +19,4 @@ export default {
   body{
     background-color: #f8f8f8;
   }
-  #app{
-    padding: 15px;
-  }
 </style>
