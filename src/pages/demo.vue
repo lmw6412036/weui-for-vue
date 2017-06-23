@@ -1,5 +1,16 @@
 <template>
-  <nav-select :data="data"></nav-select>
+  <ul>
+    <li style="float: left;width: 40%">
+      <nav-select :data="data2" :top="top">
+        <span>选择2</span>
+      </nav-select>
+    </li>
+    <li style="float: left;width: 40%">
+      <nav-select :data="data1" :top="top">
+        <span>选择1</span>
+      </nav-select>
+    </li>
+  </ul>
 </template>
 <script>
   import FormButton from "../components/form/button.vue"
@@ -16,20 +27,21 @@
   import Demo from "../data/demo"
   export default {
     data() {
-      var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-      arr = arr.map((item, index) => {
-        item = new Demo({value: item});
-        return item;
+      let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+      let arr1 = arr.map((item, index) => {
+        return new Demo({value: item});
       });
-      arr = arr.map((item, index) => {
-        item.children = [1, 2, 3, 4, 5, 6].map((res) => {
-          res = new Demo({value: res});
-          return res;
-        });
-        return item;
+      let arr2 = arr1.map((item, index) => {
+        return Object.assign({},item,{children:[1,2,3,4,5,6].map((res)=>{
+            return Object.assign({},new Demo({value:res}));
+        })})
       });
+
+      console.log('arr1', arr,arr1,arr2);
       return {
-        data: [arr],
+        top: 45,
+        data1: [arr2],
+        data2: [arr1],
         form: {
           value: ""
         },

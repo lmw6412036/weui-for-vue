@@ -1,12 +1,12 @@
 <template>
-  <div ref="navSelect" class="nav-select">
-    <span>选择</span>
-    <div ref="wrap" class="wrap">
+  <div ref="navSelect" class="nav-select" @click="wrap()">
+    <slot></slot>
+    <div ref="wrap" :style="wrapStyle" class="wrap" v-if="data.length>0&&show">
       <div class="mask"></div>
-      <div class="main" :deep="deep">
+      <div class="main" :class="{down:down}" ref="main" :deep="deep">
         <scroll ref="scroll" v-if="scrollHeight" :height="scrollHeight" v-for="i in deep" :key="i">
           <ul>
-            <li @click="click(item,i-1)" :class="{'current':active[i-1]==item.value}" v-for="item in list[i-1]">
+            <li @click="click(item,i-1,$event)" :class="{'current':active[i-1]==item.value}" v-for="item in list[i-1]">
               {{item.label}}
             </li>
           </ul>
@@ -22,16 +22,20 @@
   import Datatype from '../../lib/datatype'
   export default {
     props: {
+      top: [String, Number],
       data: Array
     },
     data() {
       return {
+        show: false,
+        down: false,
         deep: 0,
         itemType: "",
         list: [],
         scrollHeight: 0,
         activeItem: [],
-        active: []
+        active: [],
+        wrapStyle: {}
       };
     },
     computed: {},
@@ -41,11 +45,8 @@
     },
     mounted() {
       var hhh = window.innerHeight;
-      var www = window.innerWidth;
-      var h = this.$refs.navSelect.clientHeight;
-      this.$refs.wrap.style.top = h + "px";
-      this.scrollHeight = (hhh - h) * 0.7
-
+      //this.$refs.wrap.style.top = h + "px";
+      //this.scrollHeight = (hhh - h) * 0.7
       if (this.data) {
         this.list.push(this.data[0]);
         this._setActive(this.data[0][0], 0);
@@ -60,7 +61,6 @@
           this.list.push(this.data[1])
         }
       }
-
     },
     beforeDestroy() {
 
@@ -98,14 +98,43 @@
         if (index == 0) {
           if (this.itemType == "cascade") {
             this.list.splice(1, 1, item.children);
-            this._setActive(item.children[0],1);
+            this._setActive(item.children[0], 1);
           }
         }
       },
-      click(item, index){
+      _initScroll(){
+        let hhh = window.innerHeight;
+        let h = parseInt(this.top);
+        this.scrollHeight = (hhh - h) * 0.7;
+      },
+      _showWrap(){
+        this.show = true;
+        this.$set(this.wrapStyle, "top", parseInt(this.top) + "px");
+        this.$set(this.wrapStyle, "zIndex",parseInt(timeFormat("%H%M%S")(new Date())));
+        setTimeout((res) => {
+          this.down = true;
+          setTimeout((res) => {
+            this._initScroll();
+          }, 300)
+        }, 20)
+      },
+      _hideWrap(){
+        this.show = false;
+        this.down = false;
+      },
+      click(item, index, e){
         this._setActive(item, index);
-        if(index==1){
-          this.$emit('nav-select:change',this.activeItem);
+        if (index == 1) {
+          this.$emit('nav-select:change', this.activeItem);
+          this._hideWrap();
+        }
+        e.stopPropagation();
+      },
+      wrap(){
+        if (!this.show) {
+          this._showWrap()
+        } else {
+          this._hideWrap()
         }
       }
 
@@ -116,11 +145,6 @@
 <style scoped lang="scss">
   .nav-select {
     position: relative;
-    height: 45px;
-    line-height: 45px;
-    span {
-
-    }
     .wrap {
       position: fixed;
       right: 0;
@@ -137,11 +161,14 @@
         background-color: rgba(0, 0, 0, 0.5);
       }
       .main {
-        height: 70%;
+        &.down {
+          height: 70%;
+        }
+        height: 0;
+        transition: all 0.2s;
         overflow: hidden;
         background-color: white;
         display: flex;
-        position: relative;
         li {
           position: relative;
           height: 50px;
