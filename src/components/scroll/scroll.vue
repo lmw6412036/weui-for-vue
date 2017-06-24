@@ -29,7 +29,6 @@
     methods: {
       _init(){
         setTimeout((res) => {
-          console.log(this.$refs.iscoll);
           this.iscroll = new IScroll(this.$refs.iscoll, {
             mouseWheel: true,
             probeType: 2,
