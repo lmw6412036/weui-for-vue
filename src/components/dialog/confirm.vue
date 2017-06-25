@@ -62,7 +62,7 @@
                     if(type=="cancel"&&this.cancel){
                         this.cancel();
                     }
-                },500);
+                },200);
             },
 
             click(type){
@@ -80,7 +80,7 @@
 <style scoped lang="scss">
     .confirm {
         opacity: 0;
-        transition: all 0.5s;
+        transition: all 0.2s;
         &.show {
             opacity: 1;
         }

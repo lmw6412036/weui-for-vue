@@ -13,12 +13,39 @@ import SelectPicker from "./src/components/form/select-picker.vue"
 import DatePicker from "./src/components/form/date-picker.vue"
 import NavSelect from "./src/components/nav/nav-select.vue"
 import Scroll from "./src/components/scroll/scroll.vue"
+import Gallery from "./src/components/gallery.vue"
 
 export default {
-    Msg, Loading, Toast, FormInput, FormButton,PlainButton, Alert, Confirm, SelectPicker,DatePicker, NavSelect, Scroll
+    Msg,
+    Loading,
+    Toast,
+    FormInput,
+    FormButton,
+    PlainButton,
+    Alert,
+    Confirm,
+    SelectPicker,
+    DatePicker,
+    NavSelect,
+    Scroll,
+    Gallery
 }
 
-export {Msg, Loading, Toast, FormInput, FormButton,PlainButton, Alert, Confirm, SelectPicker,DatePicker, NavSelect, Scroll}
+export {
+    Msg,
+    Loading,
+    Toast,
+    FormInput,
+    FormButton,
+    PlainButton,
+    Alert,
+    Confirm,
+    SelectPicker,
+    DatePicker,
+    NavSelect,
+    Scroll,
+    Gallery
+}
 
 
 
