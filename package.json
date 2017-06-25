@@ -1,6 +1,6 @@
 {
     "name": "weui-for-vue",
-    "version": "1.0.65",
+    "version": "1.0.68",
     "description": "weui for vue",
     "main": "index.js",
     "scripts": {

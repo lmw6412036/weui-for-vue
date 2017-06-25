@@ -14,6 +14,7 @@ import DatePicker from "./src/components/form/date-picker.vue"
 import NavSelect from "./src/components/nav/nav-select.vue"
 import Scroll from "./src/components/scroll/scroll.vue"
 import Gallery from "./src/components/gallery.vue"
+import ActionSheet from "./src/components/action-sheet.vue"
 
 export default {
     Msg,
@@ -28,7 +29,8 @@ export default {
     DatePicker,
     NavSelect,
     Scroll,
-    Gallery
+    Gallery,
+    ActionSheet
 }
 
 export {
@@ -44,7 +46,8 @@ export {
     DatePicker,
     NavSelect,
     Scroll,
-    Gallery
+    Gallery,
+    ActionSheet
 }
 
 

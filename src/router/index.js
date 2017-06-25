@@ -5,6 +5,7 @@ import DatePicker from "../pages/form/date-picker.vue"
 import NavSelect from "../pages/nav/select.vue"
 import PlainButton from "../pages/form/plain-button.vue"
 import Gallery from "../pages/gallery.vue"
+import ActionSheet from "../pages/action-sheet.vue"
 
 Vue.use(Router)
 
@@ -29,6 +30,10 @@ export default new Router({
         {
             path: "/gallery",
             component: Gallery
+        },
+        {
+            path:"/actionsheet",
+            component:ActionSheet
         }
 
     ]
