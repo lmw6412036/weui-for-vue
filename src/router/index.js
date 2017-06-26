@@ -6,6 +6,7 @@ import NavSelect from "../pages/nav/select.vue"
 import PlainButton from "../pages/form/plain-button.vue"
 import Gallery from "../pages/gallery.vue"
 import ActionSheet from "../pages/action-sheet.vue"
+import Uploader from "../pages/form/uploader.vue"
 
 Vue.use(Router)
 
@@ -22,6 +23,10 @@ export default new Router({
         {
             path: '/form/plainbutton',
             component: PlainButton
+        },
+        {
+            path: '/form/uploader',
+            component: Uploader
         },
         {
             path: "/nav/select",
