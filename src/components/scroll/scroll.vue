@@ -5,9 +5,10 @@
 </template>
 
 <script>
-  import "iscroll"
+  import IScroll from "iscroll/build/iscroll-probe"
   export default {
     props: {
+      data: [Array, Object],
       height: [Number, String]
     },
     data() {
@@ -19,7 +20,6 @@
     components: {},
     mounted() {
       if (this.height) {
-        this.$refs.iscoll.style.height = parseInt(this.height) + "px";
         this._init();
       }
     },
@@ -28,21 +28,60 @@
     },
     methods: {
       _init(){
+        this.$refs.iscoll.style.height = parseInt(this.height) + "px";
         setTimeout((res) => {
           this.iscroll = new IScroll(this.$refs.iscoll, {
             mouseWheel: true,
             probeType: 2,
-            click: true
+            click: true,
           });
+          this.iscroll.on("scroll", this._scroll)
+          this.iscroll.on("scrollEnd", this._scrollEnd)
+          this.iscroll.on("scrollStart", this._scrollStart)
+
         }, 20)
+      },
+      _getData(iscroll){
+        let res = {};
+        for (let i in iscroll) {
+          if (typeof iscroll[i] == "string" || typeof iscroll[i] == "number" || typeof iscroll[i] == "boolean") {
+            res[i] = iscroll[i];
+          }
+        }
+        return res;
+      },
+      _scroll(){
+        this.$emit("scroll:scroll", this._getData(this.iscroll));
+      },
+      _scrollEnd(){
+        this.$emit("scroll:end", this._getData(this.iscroll));
+      },
+      _scrollStart(){
+        this.$emit("scroll:start", this._getData(this.iscroll));
       }
     },
-    watch: {}
+    watch: {
+      data(value){
+        if (this.iscroll) {
+          setTimeout((res) => {
+            this.iscroll.refresh();
+          }, 200)
+        }
+      },
+      height(){
+        if (this.iscroll) {
+          this.iscroll.refresh();
+        } else {
+          this._init();
+        }
+      }
+    }
   };
 </script>
 
 <style scoped lang="scss">
   .iscroll {
+    overflow: hidden;
     > * {
       touch-action: none;
     }

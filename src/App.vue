@@ -16,6 +16,13 @@ export default {
     padding: 0;
     box-sizing: border-box;
   }
+  #app{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
   body{
     background-color: #f8f8f8;
   }

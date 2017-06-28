@@ -23,7 +23,6 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-      'iscroll': resolve('src/lib/iscroll/iscroll-probe.js')
     }
   },
   module: {
