@@ -1,7 +1,7 @@
 <template>
     <div class="weui-cells weui-cells_form">
-        <form-code @code:ok="countdown=true" @code:countdownend="countdown=false" @code:error="error" :countdown="countdown"  v-model="mobile" default-time="10" label="验证码" :mobile="mobile"></form-code>
-        {{mobile}}
+        <form-code @code:ok="countdown=true" @code:countdownend="countdown=false" @code:error="error" :countdown="countdown"  v-model="code" default-time="10" label="验证码" :mobile="mobile"></form-code>
+        {{code}}
     </div>
 </template>
 

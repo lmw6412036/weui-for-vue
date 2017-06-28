@@ -17,6 +17,7 @@ import ScrollView from "./src/components/scroll/scroll-view.vue"
 import Gallery from "./src/components/gallery.vue";
 import ActionSheet from "./src/components/action-sheet.vue";
 import Uploader from "./src/components/form/uploader.vue";
+import FormCode from "./src/components/form/code.vue"
 
 export default {
     Msg,
@@ -34,7 +35,8 @@ export default {
     ScrollView,
     Gallery,
     ActionSheet,
-    Uploader
+    Uploader,
+    FormCode
 }
 
 export {
@@ -53,7 +55,8 @@ export {
     ScrollView,
     Gallery,
     ActionSheet,
-    Uploader
+    Uploader,
+    FormCode
 }
 
 
