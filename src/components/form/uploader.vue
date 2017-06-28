@@ -8,7 +8,7 @@
                 </div>
                 <div class="weui-uploader__bd">
                     <ul class="weui-uploader__files" id="uploaderFiles">
-                        <li v-for="obj in pics" class="weui-uploader__file" :style="obj.style"></li>
+                        <slot></slot>
                     </ul>
                     <div class="weui-uploader__input-box">
                         <input @change="change($event)" class="weui-uploader__input" type="file" multiple="multiple" accept="*/*">
@@ -30,16 +30,7 @@
             return {};
         },
         computed: {
-            pics(){
-                return this.data.map((item) => {
-                    return {
-                        pic:item,
-                        style:{
-                            "backgroundImage":`url(${item})`
-                        }
-                    }
-                })
-            }
+
         },
         components: {},
         mounted() {
