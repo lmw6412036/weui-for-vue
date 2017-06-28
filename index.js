@@ -13,44 +13,47 @@ import SelectPicker from "./src/components/form/select-picker.vue";
 import DatePicker from "./src/components/form/date-picker.vue";
 import NavSelect from "./src/components/nav/nav-select.vue";
 import Scroll from "./src/components/scroll/scroll.vue";
+import ScrollView from "./src/components/scroll/scroll-view.vue"
 import Gallery from "./src/components/gallery.vue";
 import ActionSheet from "./src/components/action-sheet.vue";
 import Uploader from "./src/components/form/uploader.vue";
 
 export default {
-  Msg,
-  Loading,
-  Toast,
-  FormInput,
-  FormButton,
-  PlainButton,
-  Alert,
-  Confirm,
-  SelectPicker,
-  DatePicker,
-  NavSelect,
-  Scroll,
-  Gallery,
-  ActionSheet,
-  Uploader
+    Msg,
+    Loading,
+    Toast,
+    FormInput,
+    FormButton,
+    PlainButton,
+    Alert,
+    Confirm,
+    SelectPicker,
+    DatePicker,
+    NavSelect,
+    Scroll,
+    ScrollView,
+    Gallery,
+    ActionSheet,
+    Uploader
 }
 
 export {
-  Msg,
-  Loading,
-  Toast,
-  FormInput,
-  FormButton,
-  PlainButton,
-  Alert,
-  Confirm,
-  SelectPicker,
-  DatePicker,
-  NavSelect,
-  Scroll,
-  Gallery,
-  ActionSheet,
-  Uploader
+    Msg,
+    Loading,
+    Toast,
+    FormInput,
+    FormButton,
+    PlainButton,
+    Alert,
+    Confirm,
+    SelectPicker,
+    DatePicker,
+    NavSelect,
+    Scroll,
+    ScrollView,
+    Gallery,
+    ActionSheet,
+    Uploader
 }
 
 
