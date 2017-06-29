@@ -11,7 +11,7 @@
                         <slot></slot>
                     </ul>
                     <div class="weui-uploader__input-box">
-                        <input @change="change($event)" class="weui-uploader__input" type="file" multiple="multiple" accept="*/*">
+                      <form><input @change="change($event)" class="weui-uploader__input" type="file" multiple="multiple" accept="*/*"></form>
                     </div>
                 </div>
             </div>
