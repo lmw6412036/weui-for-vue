@@ -22,6 +22,7 @@ export default {
     right: 0;
     top: 0;
     bottom: 0;
+    overflow: scroll;
   }
   body{
     background-color: #f8f8f8;
