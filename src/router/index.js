@@ -10,13 +10,14 @@ import Uploader from "../pages/form/uploader.vue";
 import Scroll from "../pages/scroll/scroll.vue";
 import ScrollView from "../pages/scroll/scroll-view.vue"
 import Code from "../pages/form/code.vue"
+import Chart from "../pages/chart.vue"
 Vue.use(Router)
 
 export default new Router({
     routes: [
         {
             path: '/',
-            component: Index
+            redirect:"/chart"
         },
         {
             path: '/form/datepicker',
@@ -53,6 +54,10 @@ export default new Router({
         {
             path: "/scroll/view",
             component: ScrollView
+        },
+        {
+            path: "/chart",
+            component: Chart
         }
     ]
 })
