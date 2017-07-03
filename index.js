@@ -19,6 +19,7 @@ import ActionSheet from "./src/components/action-sheet.vue";
 import Uploader from "./src/components/form/uploader.vue";
 import FormCode from "./src/components/form/code.vue";
 import FormRadio from "./src/components/form/radio.vue";
+import FormCheckbox from "./src/components/form/checkbox.vue"
 import FormSwitch from "./src/components/form/switch.vue";
 
 export default {
@@ -40,6 +41,7 @@ export default {
   Uploader,
   FormCode,
   FormRadio,
+  FormCheckbox,
   FormSwitch
 }
 
@@ -62,6 +64,7 @@ export {
   Uploader,
   FormCode,
   FormRadio,
+  FormCheckbox,
   FormSwitch
 }
 

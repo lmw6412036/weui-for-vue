@@ -1,6 +1,6 @@
 {
     "name": "weui-for-vue",
-    "version": "1.0.92",
+    "version": "1.0.98",
     "description": "weui for vue",
     "main": "index.js",
     "scripts": {
@@ -14,6 +14,7 @@
         "d3-queue": "^3.0.7",
         "d3-time-format": "^2.0.5",
         "iscroll": "^5.2.0",
+        "lmw-time-format": "^1.0.1",
         "vue": "^2.3.3",
         "vue-router": "^2.3.1",
         "vuelidate": "^0.5.0"

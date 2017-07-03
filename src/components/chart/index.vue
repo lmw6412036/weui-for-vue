@@ -1,79 +1,150 @@
 <template>
-    <div ref="chart" class="chart">
-        <scroll ref="scroll"
-                :height="scrollHeight"
-                :data="data">
-            <div>
-                <slot name="diymsg"></slot>
-                <ul>
-                    <li ref="item" v-for="item in data"><img src="http://p3.ifengimg.com/a/2017_26/20d0751eab3c555.jpg"
-                                                             width="40%" @load="load" alt="">{{item}}
-                    </li>
-                </ul>
+  <div ref="chart" class="chart">
+    <scroll ref="scroll"
+            :height="scrollHeight"
+            :data="data">
+      <div class="list">
+        <slot name="diymsg"></slot>
+        <ul>
+          <li :class="[item.msgtType]" ref="item" v-for="item in data">
+            <div class="time"></div>
+            <div class="item">
+              <div class="ava"><img @load="load" :src="item.msgAva" alt=""></div>
+              <div class="arrow"></div>
+              <div class="content">{{item.msgContent}}</div>
             </div>
-        </scroll>
-        <div class="send" ref="send">底部</div>
+          </li>
+        </ul>
+      </div>
+    </scroll>
+    <div class="foot" ref="foot" v-if="hasfoot">
+      <sendbox @sendbox:heightchange="heightchange"></sendbox>
     </div>
+  </div>
 </template>
 
 <script>
-    import Scroll from "../scroll/scroll.vue"
-    export default {
-        props: {
-            height: [Number, String]
-        },
-        data() {
-            return {
-                scrollHeight: 0,
-                data: []
-            };
-        },
-        created(){
+  import Sendbox from "./sendbox.vue"
+  import Scroll from "../scroll/scroll.vue"
+  export default {
+    props: {
+      height: [Number, String],
+      hasfoot: Boolean,
+      data: [Array, Object]
+    },
+    data() {
+      return {
+        scrollHeight: 0
+      };
+    },
+    created(){
 
-        },
-        computed: {},
-        components: {Scroll},
-        mounted() {
-            setTimeout(() => {
-                for (let i = 0; i < 100; i++) {
-                    this.data.push("li" + i);
-                }
-                this._toBottom();
-            }, 3000)
-            this._init(this.height);
-        },
-        beforeDestroy() {
+    },
+    computed: {},
+    components: {Scroll, Sendbox},
+    mounted() {
+      this._init(this.height);
+    },
+    beforeDestroy() {
 
-        },
-        methods: {
-            _init(height){
-                let chart = this.$refs.chart, send = this.$refs.send;
-                let h = send.clientHeight;
-                chart.style.height = parseInt(height) + "px";
-                this.scrollHeight = parseInt(height) - h;
-            },
-            _toBottom(){
-                setTimeout(() => {
-                    let scroll = this.$refs.scroll;
-                    let items = this.$refs.item;
-                    scroll.scrollToElement(items[items.length - 1], 0);
-                }, 200)
-            },
-            load(e){
-                let scroll = this.$refs.scroll;
-                scroll.refresh();
-            }
-        },
-        watch: {
-            height(value){
-                this._init(value);
-            }
-        }
-    };
+    },
+    methods: {
+      _init(height){
+        let chart = this.$refs.chart, foot = this.$refs.foot;
+        let h = foot ? (foot.style.height || foot.clientHeight) : 0;
+        chart.style.height = parseInt(height) + "px";
+        this.scrollHeight = parseInt(height) - parseInt(h);
+      },
+      toBottom(){
+        setTimeout(() => {
+          let scroll = this.$refs.scroll;
+          let items = this.$refs.item;
+          scroll.scrollToElement(items[items.length - 1], 0);
+        }, 200)
+      },
+      load(e){
+        let scroll = this.$refs.scroll;
+        scroll.refresh();
+      },
+      heightchange(height){
+        console.log('hhh', height);
+        let foot = this.$refs.foot;
+        foot.style.height = height + "px";
+        setTimeout((res) => {
+          this._init(this.height);
+        }, 20);
+      }
+    },
+    watch: {
+      height(value){
+        this._init(value);
+      },
+      data(){
+        this.toBottom();
+      }
+    }
+  };
 </script>
 
 <style scoped lang="scss">
-    .chart {
-        overflow: hidden;
+  .chart {
+    overflow: hidden;
+    position: relative;
+    .list {
+      ul {
+        li {
+          &.self {
+            .item {
+              flex-direction: row-reverse;
+              .arrow{
+                border-left: 10px solid #2D93CA;
+                border-top: 5px solid transparent;
+                border-bottom: 5px solid transparent;
+                border-right: 0px none;
+              }
+            }
+
+          }
+        ;
+          &.other {
+
+          }
+          .item {
+            $w1: 40px;
+            padding: 0 10px 10px 10px;
+            display: flex;
+            align-items: flex-start;
+            .ava {
+              flex: 0 0 auto;
+              img {
+                width: $w1;
+                height: $w1
+              }
+            }
+            .arrow {
+              border-right: 10px solid #2D93CA;
+              border-top: 5px solid transparent;
+              border-bottom: 5px solid transparent;
+              border-left: 0px none;
+              width: 0;
+              height: 0;
+              transform: translate(0, $w1/2 - 5px);
+            }
+            .content {
+              flex: 1 1 auto;
+              background-color: #2D93CA;
+              border-radius: 5px;
+              padding: 5px;
+              min-height: $w1;
+            }
+          }
+        }
+      }
     }
+    .foot {
+      transition: all 0.2s;
+      height: 45px;
+      background-color: white;
+    }
+  }
 </style>
