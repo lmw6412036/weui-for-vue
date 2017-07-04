@@ -1,6 +1,6 @@
 {
     "name": "weui-for-vue",
-    "version": "1.0.100",
+    "version": "1.0.102",
     "description": "weui for vue",
     "main": "index.js",
     "scripts": {
@@ -17,7 +17,8 @@
         "lmw-time-format": "^1.0.1",
         "vue": "^2.3.3",
         "vue-router": "^2.3.1",
-        "vuelidate": "^0.5.0"
+        "vuelidate": "^0.5.0",
+        "weui.js": "^1.1.1"
     },
     "devDependencies": {
         "autoprefixer": "^6.7.2",
@@ -57,8 +58,7 @@
         "webpack-dev-middleware": "^1.10.0",
         "webpack-hot-middleware": "^2.18.0",
         "webpack-merge": "^4.1.0",
-        "weui": "^1.1.2",
-        "weui.js": "^1.1.1"
+        "weui": "^1.1.2"
     },
     "engines": {
         "node": ">= 4.0.0",
