@@ -21,6 +21,9 @@ import FormCode from "./src/components/form/code.vue";
 import FormRadio from "./src/components/form/radio.vue";
 import FormCheckbox from "./src/components/form/checkbox.vue"
 import FormSwitch from "./src/components/form/switch.vue";
+import FormTextarea from "./src/components/form/textarea.vue"
+import Chart from "./src/components/chart/index.vue"
+
 
 export default {
   Msg,
@@ -42,7 +45,9 @@ export default {
   FormCode,
   FormRadio,
   FormCheckbox,
-  FormSwitch
+  FormSwitch,
+  FormTextarea,
+  Chart
 }
 
 export {
@@ -65,7 +70,9 @@ export {
   FormCode,
   FormRadio,
   FormCheckbox,
-  FormSwitch
+  FormSwitch,
+  FormTextarea,
+  Chart
 }
 
 

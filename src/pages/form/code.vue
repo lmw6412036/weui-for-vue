@@ -9,6 +9,7 @@
     </div>
     <form-radio label="选择性别" name="sex" v-model="sex" :data="sexArr"></form-radio>
     <form-checkbox label="选择科室" name="dept" v-model="dept" :data="deptArr"></form-checkbox>
+    <form-textarea placeholder="请输入文本域" label="文本域" v-model="name" total="100"></form-textarea>
   </div>
 </template>
 
@@ -20,7 +21,7 @@
   import regex from "../../lib/regex"
   import FormRadio from "../../components/form/radio.vue"
   import FormCheckbox from "../../components/form/checkbox.vue"
-
+  import FormTextarea from "../../components/form/textarea.vue"
 
   export default {
     created(){
@@ -52,7 +53,14 @@
       }
     },
     computed: {},
-    components: {FormCheckbox, FormRadio, FormSwitch, FormInput, FormCode},
+    components: {
+      FormTextarea,
+      FormCheckbox,
+      FormRadio,
+      FormSwitch,
+      FormInput,
+      FormCode
+    },
     mounted() {
 
     },

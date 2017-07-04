@@ -103,9 +103,7 @@
                 border-right: 0px none;
               }
             }
-
-          }
-        ;
+          };
           &.other {
 
           }
