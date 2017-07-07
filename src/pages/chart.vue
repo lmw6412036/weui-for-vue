@@ -17,7 +17,7 @@
       }
     },
     mounted(){
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 100; i++) {
         this.data.push(new ChartMsg(i));
       }
       this._setChartHeight();

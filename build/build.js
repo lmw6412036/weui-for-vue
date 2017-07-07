@@ -2,6 +2,8 @@ require('./check-versions')()
 
 process.env.NODE_ENV = 'production'
 
+//console.log(process.argv);
+
 var ora = require('ora')
 var rm = require('rimraf')
 var path = require('path')
