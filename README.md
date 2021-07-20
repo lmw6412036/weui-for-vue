@@ -29,3 +29,6 @@ components:{Msg}
 
 ```
 [文档](https://github.com/lmw6412036/weui-for-vue/wiki) 
+
+
+已废弃
